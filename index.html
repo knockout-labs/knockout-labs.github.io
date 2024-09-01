@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knockout Labs</title>
+    <title>K.O. Labs</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto:wght@300;400&display=swap');
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('fonts/GhettoQueen-LVE2y.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
 
         body {
-            background-color: #FFFFFF;
-            color: #1D1D20;
-            font-family: 'Roboto', sans-serif;
+            background-color: #000000;
+            color: #000000;
+            font-family: 'CustomFont', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -24,77 +29,45 @@
         }
 
         h1 {
-            font-family: 'Russo One', sans-serif;
-            color: #eeeeee;
-            font-size: 10vw; /* Responsive font size */
+            font-family: 'CustomFont', sans-serif;
+            color: #1D1D20;
+            font-size: 10vw;
             text-align: center;
             margin-bottom: 20px;
             line-height: 1;
             position: relative;
             z-index: 2;
-            letter-spacing: 1.5vw; /* Responsive letter-spacing */
+            letter-spacing: 2vw; /* Responsive letter-spacing */
+            text-shadow: -1vw -0.6vw red;
+            animation: glitch-anim 2s infinite linear alternate-reverse;
         }
 
-        h1::before,
-        h1::after {
-            content: 'Knockout Labs';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-        }
-
-        h1::before {
-            left: 0.7vw; /* Adjusted for mobile responsiveness */
-            color: #1D1D20;
-            text-shadow: -1vw -0.5vw red;
-            clip: rect(1vw, 100vw, 15vw, 0);
-            animation: glitch-anim-1 1.5s infinite linear alternate-reverse;
-        }
-
-        h1::after {
-            left: -0.7vw; /* Adjusted for mobile responsiveness */
-            color: #1D1D20;
-            text-shadow: 1vw 0.5vw #00FFFF;
-            clip: rect(9vw, 100vw, 18vw, 0);
-            animation: glitch-anim-2 1.5s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim-1 {
+        @keyframes glitch-anim {
             0% {
-                clip: rect(1vw, 9999vw, 15vw, 0);
-                transform: skew(3deg);
+                color: #101010;
+                text-shadow: -1vw -0.6vw red;
+            }
+            25% {
+                color: #101010;
+                text-shadow: 1vw 0.6vw turquoise;
             }
             50% {
-                clip: rect(9vw, 9999vw, 6vw, 0);
-                transform: skew(3deg);
+                color: #101010;
+                text-shadow: -1vw 0.6vw  greenyellow;
+            }
+            75% {
+                color: #101010;
+                text-shadow: 1vw -0.6vw fuchsia;
             }
             100% {
-                clip: rect(4vw, 9999vw, 15vw, 0);
-                transform: skew(-3deg);
-            }
-        }
-
-        @keyframes glitch-anim-2 {
-            0% {
-                clip: rect(6vw, 9999vw, 20vw, 0);
-                transform: skew(-3deg);
-            }
-            50% {
-                clip: rect(3vw, 9999vw, 10vw, 0);
-                transform: skew(-3deg);
-            }
-            100% {
-                clip: rect(13vw, 9999vw, 9vw, 0);
-                transform: skew(3deg);
+                color: #101010;
+                text-shadow: -1vw -0.6vw red;
             }
         }
 
         p {
             font-size: 5vw; /* Responsive font size */
-            color: #1D1D20;
+            color: #313131;
             text-align: center;
             max-width: 700px;
             margin-bottom: 40px;
@@ -115,20 +88,15 @@
         .github-link {
             text-decoration: none;
             display: inline-block;
-            color: #1D1D20;
+            color: #313131;
             font-size: 8vw; /* Responsive font size */
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        .github-link:hover {
-            color: red;
-            transform: scale(1.1);
-        }
-
         @media (min-width: 768px) {
             h1 {
-                font-size: 4em;
-                letter-spacing: 20px;
+                font-size: 10vw;
+                letter-spacing: 1.5vw;
             }
 
             p {
@@ -139,10 +107,25 @@
                 font-size: 2em;
             }
         }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 10vw;
+                letter-spacing: 2vw;
+            }
+
+            p {
+                font-size: 5vw;
+            }
+
+            .github-link {
+                font-size: 8vw;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Knockout Labs</h1>
+    <h1>KNOCKOUT LABS</h1>
     <p>coming soon.</p>
     <div class="footer">
         <a href="https://github.com/knockout-labs" class="github-link" target="_blank">
