@@ -41,7 +41,7 @@
             text-shadow: 
                 0.15vw 0.15vw turquoise,   /* First shadow */
                 -0.15vw -0.15vw fuchsia;   /* Second shadow */
-            transition: text-shadow 0.2s ease; /* Smooth transition for shadow */
+            transition: text-shadow 0.1s ease; /* Smooth transition for shadow */
         }
 
         p {
@@ -126,15 +126,6 @@
             const y = e.clientY - rect.top - rect.height / 2;
             updateTextShadow(x, y);
         });
-
-        // Device orientation event listener for mobile devices
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener('deviceorientation', function(event) {
-                const x = event.gamma; // Left to right tilt in degrees
-                const y = event.beta;  // Front to back tilt in degrees
-                updateTextShadow(x, y);
-            });
-        }
     </script>
 </body>
 </html>
