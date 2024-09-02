@@ -38,18 +38,11 @@
             position: relative;
             z-index: 2;
             letter-spacing: 2vw; /* Responsive letter-spacing */
-            text-shadow: 0.8vw 0.4vw turquoise;
-            animation: glitch-anim 5s infinite linear alternate-reverse;
+            text-shadow: 
+                0.15vw 0.15vw turquoise,   /* First shadow */
+                -0.15vw -0.15vw fuchsia;   /* Second shadow */
+            transition: text-shadow 0.2s ease; /* Smooth transition for shadow */
         }
-
-        @keyframes glitch-anim {
-    0% {
-        text-shadow: 0.8vw 0.4vw turquoise;
-    }
-    30% {
-        text-shadow: -1vw 1.5vw fuchsia;
-    }
-}
 
         p {
             font-size: 5vw; /* Responsive font size */
@@ -111,12 +104,37 @@
     </style>
 </head>
 <body>
-    <h1>KNOCKOUT LABS</h1>
+    <h1 id="title">KNOCKOUT LABS</h1>
     <p>coming soon</p>
     <div class="footer">
         <a href="https://github.com/knockout-labs" class="github-link" target="_blank">
             <i class="fab fa-github"></i>
         </a>
     </div>
+
+    <script>
+        function updateTextShadow(x, y) {
+            const title = document.getElementById('title');
+            title.style.textShadow = `${x * 0.01}px ${y * 0.01}px turquoise, ${x * -0.01}px ${y * -0.01}px fuchsia`;
+        }
+
+        // Mouse movement event listener for desktops
+        document.addEventListener('mousemove', function(e) {
+            const title = document.getElementById('title');
+            const rect = title.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            updateTextShadow(x, y);
+        });
+
+        // Device orientation event listener for mobile devices
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function(event) {
+                const x = event.gamma; // Left to right tilt in degrees
+                const y = event.beta;  // Front to back tilt in degrees
+                updateTextShadow(x, y);
+            });
+        }
+    </script>
 </body>
 </html>
