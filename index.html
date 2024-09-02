@@ -39,8 +39,8 @@
             z-index: 2;
             letter-spacing: 2vw; /* Responsive letter-spacing */
             text-shadow: 
-                0.15vw 0.15vw turquoise,   /* First shadow */
-                -0.15vw -0.15vw fuchsia;   /* Second shadow */
+                0.25vw 0.25vw dodgerblue,   /* First shadow */
+                -0.25vw -0.25vw crimson;   /* Second shadow */
             transition: text-shadow 0.1s ease; /* Smooth transition for shadow */
         }
 
@@ -115,7 +115,7 @@
     <script>
         function updateTextShadow(x, y) {
             const title = document.getElementById('title');
-            title.style.textShadow = `${x * 0.01}px ${y * 0.01}px turquoise, ${x * -0.01}px ${y * -0.01}px fuchsia`;
+            title.style.textShadow = `${x * 0.01}px ${y * 0.01}px dodgerblue, ${x * -0.01}px ${y * -0.01}px crimson`;
         }
 
         // Mouse movement event listener for desktops
